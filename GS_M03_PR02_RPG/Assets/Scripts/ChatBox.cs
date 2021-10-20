@@ -18,6 +18,13 @@ public class ChatBox : MonoBehaviourPun
         instance = this;
     }
 
+    private void Start()
+    {
+        photonView.RPC("Log", RpcTarget.All, "Server", "Right Click to change what you are holding.");
+        photonView.RPC("Log", RpcTarget.All, "Server", "Left Click to attack with your sword or place a block.");
+        photonView.RPC("Log", RpcTarget.All, "Server", "Some blocks you place let you walk on them, others don't!");
+    }
+
     public void OnChatInputSend()
     {
         if (chatInput.text.Length > 0)
