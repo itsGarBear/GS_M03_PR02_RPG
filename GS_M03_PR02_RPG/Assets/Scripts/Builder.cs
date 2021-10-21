@@ -10,12 +10,21 @@ public class Builder : PlayerController
     public SpriteRenderer currBlockSprite;
     public Sprite[] blockTypes;
     public bool[] blockNeedsTrigger;
+    public string[] tags;
+    public GameObject[] rectangleBG;
     private int blockNdx = 0;
 
 
     private void Start()
     {
+        for(int i = 0; i < blockTypes.Length; i++)
+        {
+            rectangleBG[i] = GameObject.Find(i.ToString());
+            rectangleBG[i].SetActive(false);
+        }
+
         currBlockSprite.gameObject.transform.localScale = Vector3.one;
+        rectangleBG[blockNdx].SetActive(true);
     }
 
     private void Update()
@@ -73,13 +82,16 @@ public class Builder : PlayerController
     {
         GameObject go = GameObject.Find(name);
 
+        go.tag = tags[blockNdx];
         go.GetComponent<SpriteRenderer>().sprite = blockTypes[block];
         go.GetComponent<BoxCollider2D>().isTrigger = blockNeedsTrigger[block];
     }
 
     public void ToggleBlockChoice()
     {
+        rectangleBG[blockNdx].SetActive(false);
         blockNdx = (blockNdx + 1) % blockTypes.Length;
+        rectangleBG[blockNdx].SetActive(true);
         currBlockSprite.sprite = blockTypes[blockNdx];
         if (blockNdx == 0)
         {

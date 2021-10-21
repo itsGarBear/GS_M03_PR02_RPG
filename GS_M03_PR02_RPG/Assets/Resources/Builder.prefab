@@ -363,6 +363,20 @@ MonoBehaviour:
   - {fileID: -2816911134163651068, guid: 0c87bec764c849642b103bb4b47aeed1, type: 3}
   - {fileID: -7573354855677281409, guid: 0c87bec764c849642b103bb4b47aeed1, type: 3}
   blockNeedsTrigger: 000000010101
+  tags:
+  - Player
+  - Collision
+  - Collision
+  - Background
+  - Background
+  - Background
+  rectangleBG:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &1946222744429406966
 PrefabInstance:
   m_ObjectHideFlags: 0
